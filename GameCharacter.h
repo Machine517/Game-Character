@@ -9,6 +9,7 @@
 
 #include <string>
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -27,10 +28,13 @@ public:
     void takeDamage(int damage);
     void attack(GameCharacter& target);
     void loadFromFile(const string& filename);
+    void saveChar(const string& saveFile);
 
     // Accessors
     bool getLive();
     void saveToFile(const string& filename) const;
+    void displayDateTimeOfLastSave();
+    void displayTimeSinceLastSave();
 
     // overloaded operators
     GameCharacter operator+(GameCharacter const& obj);
@@ -46,6 +50,7 @@ private:
     int attackPoints;
     int defensePoints;
     bool isAlive;
+    time_t lastSaveTime;
 
 };
 

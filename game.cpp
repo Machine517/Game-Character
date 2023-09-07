@@ -6,6 +6,7 @@
 // decent but limited gameplay, primarily attacks and character combinations.
 #include "GameCharacter.h"
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int main()
@@ -68,9 +69,12 @@ int main()
     cout << endl;
 
     // Save Game and Results
-    mario.saveToFile("mario.txt");
-    luigi.saveToFile("luigi.txt");
-    bowser.saveToFile("bowser.txt");
+    mario.saveChar("mario.txt");
+    mario.displayDateTimeOfLastSave();
+    luigi.saveChar("luigi.txt");
+    luigi.displayDateTimeOfLastSave();
+    bowser.saveChar("bowser.txt");
+    bowser.displayDateTimeOfLastSave();
 
     mario.loadFromFile("mario.txt");
     luigi.loadFromFile("luigi.txt");
@@ -79,6 +83,10 @@ int main()
     cout << mario << endl;
     cout << luigi << endl;
     cout << bowser << endl;
+
+    mario.displayTimeSinceLastSave();
+    luigi.displayTimeSinceLastSave();
+    bowser.displayTimeSinceLastSave();
 
     return 0;
 }

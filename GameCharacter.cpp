@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 
@@ -150,4 +151,36 @@ void GameCharacter::loadFromFile(const string& filename)
     inFile >> attackPoints;
     inFile >> defensePoints;
     inFile >> isAlive;
+}
+
+// Name: setTimeSaved
+// Disc: sets time of save at save
+// Type: void
+void GameCharacter::saveChar(const string& saveFile)
+{
+    saveToFile(saveFile);
+
+    time_t currTime = time(nullptr);
+    lastSaveTime = currTime;
+}
+
+// Name: displayDateTimeOfLastSave
+// Disc: displays when a file was last saved
+// Type: void
+void GameCharacter::displayDateTimeOfLastSave()
+{
+    char* timeOfSave = ctime(&lastSaveTime);
+
+    cout << "Saved: " << timeOfSave << endl;
+}
+
+// Name: displayTimeSinceLastSave
+// Disc: displays time elapsed since last save
+// Type: void
+void GameCharacter::displayTimeSinceLastSave()
+{
+    time_t currTemp = time(nullptr);
+    double elapsed = difftime(currTemp, lastSaveTime);
+
+    cout << "Saved " << elapsed << " ago." << endl;
 }
