@@ -76,6 +76,14 @@ int main()
     bowser.saveChar("bowser.txt");
     bowser.displayDateTimeOfLastSave();
 
+    cout << "Continue? (Y/N)" << endl;
+    char opt;
+    cin >> opt;
+    if (opt == 'y' || opt == 'Y')
+    {
+        cout << "Continued" << endl << endl;
+    }
+
     mario.loadFromFile("mario.txt");
     luigi.loadFromFile("luigi.txt");
     bowser.loadFromFile("bowser.txt");

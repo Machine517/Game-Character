@@ -182,5 +182,5 @@ void GameCharacter::displayTimeSinceLastSave()
     time_t currTemp = time(nullptr);
     double elapsed = difftime(currTemp, lastSaveTime);
 
-    cout << "Saved " << elapsed << " ago." << endl;
+    cout << "Saved " << elapsed << " seconds ago." << endl;
 }
